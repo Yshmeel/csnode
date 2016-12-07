@@ -30,6 +30,7 @@ function bHop () {
   }
 }
 
+console.log('Attatched onto the CSGO process\nCheat is now running');
 while (!aks.getAsyncKeyState(0x77)) {
   tBot();
   bHop();
