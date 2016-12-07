@@ -11,8 +11,8 @@ const local = require('./props/local.js');
 const entity = require('./props/entity.js');
 
 function tBot () {
-  var inCrossId = local.getInCross();
   if (aks.getAsyncKeyState(0x06)) {
+    var inCrossId = local.getInCross();
     if (inCrossId > 0 && inCrossId <= 64 && entity.getTeamNum(inCrossId - 1) !== local.getTeamNum()) {
       robot.mouseClick();
       sleep.usleep(50);
@@ -27,9 +27,17 @@ function bHop () {
   }
 }
 
+function noFlash () {
+  if (local.getFlashAlpha() > 0) {
+    local.setFlashAlpha();
+  }
+}
+
 console.log('Attatched onto the CSGO process\nCheat is now running');
 while (!aks.getAsyncKeyState(0x77)) {
   tBot();
   bHop();
+  noFlash();
   sleep.usleep(10);
 }
+console.log('Exited csnode');
