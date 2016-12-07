@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/senrab/csnode/issues"
   },
-  "homepage": "https://github.com/senrab/csnode#readme"
+  "homepage": "https://github.com/senrab/csnode#readme",
+  "dependencies": {
+    "asynckeystate": "0.0.2",
+    "memoryjs": "^2.0.1",
+    "request": "^2.79.0",
+    "robotjs": "^0.4.5",
+    "sleep": "^5.0.0"
+  }
 }
