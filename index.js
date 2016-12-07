@@ -6,12 +6,9 @@ if (!fs.existsSync('./offsets.json')) {
 
 const aks = require('asynckeystate');
 const sleep = require('sleep');
-const mem = require('memoryjs');
 const robot = require('robotjs');
-const memTool = require('./tools/memTool.js');
 const local = require('./props/local.js');
 const entity = require('./props/entity.js');
-const offsets = require('./offsets.json');
 
 function tBot () {
   var inCrossId = local.getInCross();
@@ -26,7 +23,7 @@ function tBot () {
 function bHop () {
   if (aks.getAsyncKeyState(0x20)) {
     var iFlags = local.getFlags();
-    mem.writeMemory(memTool.client_dll + offsets.signatures.dwForceJump, ((iFlags === 257) || (iFlags === 263)) ? 5 : 4, 'int');
+    local.setJumpState(((iFlags === 257) || (iFlags === 263)) ? 5 : 4);
   }
 }
 
